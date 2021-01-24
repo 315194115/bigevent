@@ -22,16 +22,20 @@ $(function(){
       $('.regiBox form').on('submit',function(e){
         e.preventDefault()
         let fd = $(this).serialize()
-        axios.post('http://api-breakingnews-web.itheima.net/api/reguser',fd).then(function(res){
+        axios.post('/api/reguser',fd).then(function(res){
             console.log(res);
+            if (res.data.status !== 0) {
+                return layer.msg(res.data.message)
+            }
             layer.msg(res.data.message)
+            $('#gotoLogin').click(0)
         })
       })
 
       $('.loginBox form').on('submit',function(e){
           e.preventDefault()
           let fd = $(this).serialize()
-          axios.post('http://api-breakingnews-web.itheima.net/api/login',fd).then(function(res){
+          axios.post('/api/login',fd).then(function(res){
             console.log(res);
             if (res.data.status === 0) {
                 location.href = "/home/index.html"
