@@ -28,7 +28,7 @@ $(function(){
                 return layer.msg(res.data.message)
             }
             layer.msg(res.data.message)
-            $('#gotoLogin').click(0)
+            $('#gotoRegi').click()
         })
       })
 
