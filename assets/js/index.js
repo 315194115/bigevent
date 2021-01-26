@@ -1,6 +1,5 @@
 function getUserInfo() {
     axios.get('/my/userinfo').then(function(res){
-        console.log(res);
         if (res.data.status !== 0) {
             return  layer.msg("获取用户信息失败")
         }
@@ -9,7 +8,6 @@ function getUserInfo() {
 }
 getUserInfo()
 function avatarAndName(res) {
-    console.log(res);
     let name = res.nickname || res.username
     $('#welcome').text('欢迎' + name)
     if (res.user_pic) {
